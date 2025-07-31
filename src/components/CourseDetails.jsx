@@ -40,8 +40,8 @@ const CourseDetails = () => {
             <div className="w-full p-4 flex gap-5 py-6 md:gap-0 md:py-0 flex-col justify-around  rounded-2xl bg-[#F5F9FA]">
               <h1 className='font-bold text-black'><span className='text-[#ee4a6b]'>Fees:</span> PKR 3,000/month (3 months only) </h1>
               <h1 className='font-bold text-black'><span className='text-[#ee4a6b]'>Duration:</span>  3 Months</h1>
-              <h1 className='font-bold text-black'><span className='text-[#ee4a6b]'>Classes:</span>  4 Days a Week</h1>
-              <h1 className='font-bold text-black'><span className='text-[#ee4a6b]'>Timing:</span>  7:30 PM to 9:00 PM</h1>
+              <h1 className='font-bold text-black'><span className='text-[#ee4a6b]'>Classes:</span>  3 Days a Week</h1>
+              <h1 className='font-bold text-black'><span className='text-[#ee4a6b]'>Timing:</span>  We will Decide</h1>
             </div>
 
             <div className="w-full py-6 px-4 md:p-4 rounded-2xl bg-[#F5F9FA]">

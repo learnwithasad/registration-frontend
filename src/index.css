@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+  font-family: "poppins", sans-serif;
+  margin: 0;
+}
+
+.cover,
+.img-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: cover;
+}
+.image-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.image-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.image-wrapper::-webkit-scrollbar-thumb {
+  background-color: #1ab69d;
+  border-radius: 4px;
+}
+
+.image-wrapper::-webkit-scrollbar-track {
+  background-color: #F5F9FA;
+}
+
+.fixed-image {
+  width: 555.984px;
+  height: 353.808px;
+  max-width: none;
+  display: block;
+}
+.radius-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.radius-bottom {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.border-button {
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.shad {
+  cursor: pointer;
+}
+
+.shad:hover {
+  background-color: #ee4a62;
+  transition: all 0.3s ease;
+  .arrow {
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+  }
+}
+
+.btn-shadow {
+  box-shadow: 0 0 10px #4f38df;
+}
+
+.btn-shadow:hover {
+  box-shadow: 0 0 20px #4f38df;
+  transition: all 0.3s ease;
+}
+

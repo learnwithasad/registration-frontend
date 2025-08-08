@@ -29,7 +29,7 @@ const CouponRoutePage = () => {
   }, [couponCode]);
 
   if (exists === null) {
-    return <div className="w-full min-h-screen flex items-center justify-center text-2xl text-center font-bold text-gray-900 bg-white">Checking coupon...</div>;
+    return <div className="w-full min-h-screen flex items-center justify-center text-2xl text-center font-bold text-gray-900 bg-white">Please Wait...</div>;
   }
 
   if (!exists) {

@@ -131,7 +131,7 @@ const isFormValid = () => {
   if (response.data.includes(value)) {
     // ✅ Only now we actually set it in formData
     toast.success("Congratulations! 🎁");
-    setFormData((prev) => ({ ...prev, coupon: couponValue }));
+    setFormData((prev) => ({ ...prev, coupon: value }));
     setCouponStatus({
       success: true,
       message:

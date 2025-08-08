@@ -43,7 +43,7 @@ const CouponDetails = () => {
 
   if (loading) {
     return (
-        <div className='flex w-full h-full items-center justify-center text-2xl text-center font-bold text-gray-900 bg-white'>Checking coupon...</div>
+        <div className='flex w-full h-full items-center justify-center text-2xl text-center font-bold text-gray-900 bg-white'>Please wait...</div>
     )
   }
 

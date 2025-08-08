@@ -23,6 +23,7 @@ const Register = () => {
 
   const [showCouponField, setShowCouponField] = useState(false);
   const [couponStatus, setCouponStatus] = useState(null);
+  const [couponValue, setCouponValue] = useState("")
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState({
     profilePic: null,
@@ -94,10 +95,11 @@ const isFormValid = () => {
           profilePic: null,
           paymentScreenshot: null,
         });
+
+        setCouponValue("")
       }
     } catch (err) {
   setLoading(true);
-
   if (err.response && err.response.data) {
     if (err.response.data.errors?.length > 0) {
       toast.error(err.response.data.errors[0].msg);
@@ -118,15 +120,50 @@ const isFormValid = () => {
     }
   };
 
-  // Coupon Handle
+  const handleApplyCoupon = async () => {
+        try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/get-coupon`);
+    
+  const value = couponValue.trim().toLowerCase();
 
-  const handleApplyCoupon = () => {
-  // Example check — you can replace this with real API logic
-  if (formData.coupon.trim().toLowerCase() === "fatima" || formData.coupon.trim().toLowerCase() === "azan" || formData.coupon.trim().toLowerCase() === "skillssikhao" || formData.coupon.trim().toLowerCase() === "asad" || formData.coupon.trim().toLowerCase() === "getfree") {
-    setCouponStatus({ success: true, message: "Congrats! You got the Frontend course free with MERN Stack." });
+
+  if (response.data.includes(value)) {
+    // ✅ Only now we actually set it in formData
+    toast.success("Congratulations! 🎁");
+    setFormData((prev) => ({ ...prev, coupon: couponValue }));
+    setCouponStatus({
+      success: true,
+      message:
+        "Congrats! You got the Frontend course free with MERN Stack."
+    });
   } else {
-    setCouponStatus({ success: false, message: "Invalid coupon code. Please try again." });
+    toast.error("Invalid coupon code");
+    setFormData((prev) => ({ ...prev, coupon: "" })); // keep empty if invalid
+    setCouponStatus({
+      success: false,
+      message: "Invalid coupon code. Please try again."
+    });
   }
+
+  } catch (err) {
+  setLoading(true);
+  if (err.response && err.response.data) {
+    if (err.response.data.errors?.length > 0) {
+      toast.error(err.response.data.errors[0].msg);
+    } else {
+      toast.error(err.response.data.error || 'Unknown error occurred');
+    }
+    
+  } else {
+    // Handle cases like network error where err.response is undefined
+    if (err.message === 'Network Error') {
+      toast.error('Network Error: Please check your internet connection.');
+    } else {
+      toast.error('Internal Server Error. Please wait.');
+    }
+  }
+}
 };
 
   return (
@@ -334,17 +371,17 @@ const isFormValid = () => {
           name="coupon"
           id="coupon"
           placeholder="Enter Coupon Code"
-          value={formData.coupon}
-          onChange={handleChange}
+          value={couponValue}
+          onChange={(e) => setCouponValue(e.target.value)}
           className="w-full p-3 border border-[#e6e6e6] rounded-md bg-[#F0F4F5] text-black placeholder-gray-500 focus:outline-none focus:border-[#1ab69d] transition-colors"
         />
         <button
           type="button"
           onClick={handleApplyCoupon}
           className={`px-4 md:px-10 py-3 ${
-            formData.coupon.trim().length > 0 ? 'bg-[#1ab69d] duration-200 hover:bg-[#EE4A6B] cursor-pointer' : 'bg-gray-400 cursor-not-allowed'
+            couponValue.trim().length > 0 ? 'bg-[#1ab69d] duration-200 hover:bg-[#EE4A6B] cursor-pointer' : 'bg-gray-400 cursor-not-allowed'
           } text-white font-semibold rounded-md transition-colors`}
-          disabled={formData.coupon.trim().length === 0}
+          disabled={couponValue.trim().length === 0}
         >
           Apply
         </button>

@@ -23,7 +23,7 @@ const AllCouponsData = () => {
         formData
       );
 
-      if (response.statusText === "OK") {
+      if (response.status === 200) {
         setCoupons(response.data);
         toast.success("Details Submitted Successfully");
 

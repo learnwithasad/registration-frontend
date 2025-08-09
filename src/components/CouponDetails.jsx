@@ -16,7 +16,7 @@ const CouponDetails = () => {
           `${import.meta.env.VITE_BACKEND_URL}/api/coupon-details`, {coupon: couponCode}
         );
 
-
+console.log('respon', response)
         if (response.data.success || response.statusText === "OK") {
             setStudentsData(response.data);
     }
@@ -47,6 +47,8 @@ const CouponDetails = () => {
     )
   }
 
+    console.log('student Data', studentsData)
+    
    if (!studentsData || studentsData.length === 0) {
     return (
         <div className='flex w-full h-full mt-20 items-center justify-center text-2xl sm:text-4xl text-center font-bold text-gray-900 bg-white'>Your Data is Empty <PiEmptyBold className='ml-3 text-3xl text-[#1CB69A] sm:text-5xl' /></div>

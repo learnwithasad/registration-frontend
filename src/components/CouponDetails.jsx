@@ -8,12 +8,13 @@ const CouponDetails = () => {
     const [loading, setLoading] = useState(false)
     const { couponCode } = useParams();
     const [studentsData, setStudentsData] = useState([])
-    
+    const couponCodeLowercase = couponCode.trim().toLowerCase(),
+        
   useEffect(() => {
     const getDetails = async () => {
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/api/coupon-details`, {coupon: couponCode}
+          `${import.meta.env.VITE_BACKEND_URL}/api/coupon-details`, {coupon: couponCodeLowercase}
         );
 
         if (response.data || response.status === 200) {

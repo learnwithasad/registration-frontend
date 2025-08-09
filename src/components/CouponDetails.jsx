@@ -8,7 +8,7 @@ const CouponDetails = () => {
     const [loading, setLoading] = useState(false)
     const { couponCode } = useParams();
     const [studentsData, setStudentsData] = useState([])
-    const couponCodeLowercase = couponCode.trim().toLowerCase(),
+    const couponCodeLowercase = couponCode.trim().toLowerCase();
         
   useEffect(() => {
     const getDetails = async () => {

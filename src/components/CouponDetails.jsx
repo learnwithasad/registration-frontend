@@ -62,7 +62,9 @@ const CouponDetails = () => {
                     <div className='flex ml-2.5 flex-col justify-between h-[100%]'>
                         <div>
                          <h1 className='text-md sm:text-xl font-bold'>{student.fullName}</h1>
-                        <h3 className='text-sm mt-2 sm:text-lg font-[600]'>Coupon: <span className='text-[#1CB69A]'> {student.coupon} </span></h3>
+                        <h3 className='text-sm mt-2 sm:text-lg font-[600]'>
+  Coupon: <span className='text-[#1CB69A]'> {student.coupon.toUpperCase()} </span>
+</h3>
                         </div>
                          <h4 className='text-sm sm:text-md'>
   {new Date(student.createdAt).toLocaleDateString("en-GB", {

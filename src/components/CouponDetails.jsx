@@ -16,8 +16,7 @@ const CouponDetails = () => {
           `${import.meta.env.VITE_BACKEND_URL}/api/coupon-details`, {coupon: couponCode}
         );
 
-console.log('respon', response)
-        if (response.data.success || response.statusText === "OK") {
+        if (response.data || response.status === 200) {
             setStudentsData(response.data);
     }
 
@@ -46,8 +45,6 @@ console.log('respon', response)
         <div className='flex w-full h-full items-center justify-center text-2xl text-center font-bold text-gray-900 bg-white'>Please wait...</div>
     )
   }
-
-    console.log('student Data', studentsData)
     
    if (!studentsData || studentsData.length === 0) {
     return (

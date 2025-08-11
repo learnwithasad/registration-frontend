@@ -467,6 +467,9 @@ const isFormValid = () => {
         </form>
       </div>
     </div>
+      <a href="https://wa.me/923702575635" target="_blank" className='fixed z-50 right-4 bottom-10  animate-pulse sm:animate-bounce sm:bottom-6'>
+        <img src="./whatsapp.png" alt="whatsapp logo" className='h-10 w-10 sm:w-14 sm:h-14' />
+        </a>
     <Toaster />
     </>
   );
